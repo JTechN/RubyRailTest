@@ -78,3 +78,4 @@ gem "devise"
 
 #Admin
 gem 'administrate', '~> 0.18.0'
+gem 'activeadmin'
