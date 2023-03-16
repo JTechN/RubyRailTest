@@ -19,7 +19,7 @@ Trestle.resource(:users) do
 
     select :role, [
       ["Accountant", "accountant"],
-      ["Administrator", "administrator"],
+      ["Administrator", "admin"],
       ["Manager", "manager"]
     ]
     # row do
