@@ -3,6 +3,13 @@
 <% if current_user %>
   <p>Hello <%= current_user.email %></p>
   <p>You are a [<%= current_user.role %>]</p>
+  
+    <!-- ============================================
+    If user is admin, it will send to admin page
+    ============================================ -->
+   <!-- <%= if current_user.admin? %>
+    <%= User.count %>
+  <% else %> %> -->
 
 <% else %>
 
