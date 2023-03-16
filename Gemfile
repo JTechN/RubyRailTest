@@ -75,3 +75,6 @@ gem "tailwindcss-rails", "~> 2.0"
 
 #Devise for user authentication
 gem "devise"
+
+#Admin
+gem 'administrate', '~> 0.18.0'
