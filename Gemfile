@@ -80,8 +80,8 @@ gem "devise"
 gem 'trestle'
 
 #Admin
-gem 'administrate', '~> 0.18.0'
-gem 'activeadmin'
+# gem 'administrate', '~> 0.18.0'
+# gem 'activeadmin'
 
 # gem 'cancancan'
 # gem 'draper'
