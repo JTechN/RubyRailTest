@@ -18,9 +18,9 @@ Trestle.resource(:users) do
     text_field :email
 
     select :role, [
-      ["Accountant", "accountant"],
-      ["Administrator", "admin"],
-      ["Manager", "manager"]
+      ["Accountant", "Accountant"],
+      ["Administrator", "Admin"],
+      ["Manager", "Manager"]
     ]
     # row do
     #   col { datetime_field :updated_at }
