@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_16_225238) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_16_235606) do
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.decimal "number"
+    t.string "description"
+    t.string "normal_side"
+    t.decimal "initial_balance"
+    t.decimal "debit"
+    t.decimal "credit"
+    t.decimal "balance"
+    t.decimal "order"
+    t.string "comment"
+    t.string "category"
+    t.string "subcategory"
+    t.string "statement"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,66 @@
+<h2>Account Form</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "accounts/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :number %><br />
+    <%= f.number_field :number, autofocus: true, autocomplete: "number" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, autofocus: true, autocomplete: "description" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :normal_side %><br />
+    <%= f.text_field :normal_side, autofocus: true, autocomplete: "normal side" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :initial_balance %><br />
+    <%= f.number_field :initial_balance, autofocus: true, autocomplete: "initial balance" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :debit %><br />
+    <%= f.number_field :debit, autofocus: true, autocomplete: "debit" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :credit %><br />
+    <%= f.number_field :credit, autofocus: true, autocomplete: "credit" %>
+  </div>
+
+<div class="field">
+    <%= f.label :balance %><br />
+    <%= f.number_field :balance, autofocus: true, autocomplete: "balance" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :id %><br />
+    <%= f.number_field :id, autofocus: true, autocomplete: "id" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :order %><br />
+    <%= f.number_field :order, autofocus: true, autocomplete: "order" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment, autofocus: true, autocomplete: "comment" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit Form" %>
+  </div>
+<% end %>
+
+<%= render "accounts/shared/links" %>
