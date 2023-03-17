@@ -1,0 +1,15 @@
+<h1>Homepage</h1>
+<br>
+<% if current_user %>
+  <p>Hello <%= current_user.email %></p>
+  <br>
+  <p>You are a [<%= current_user.role %>]</p>
+  <br>
+  
+  
+
+<% else %>
+
+  <p>You are not signed in.</p>
+
+<% end %>
