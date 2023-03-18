@@ -10,9 +10,7 @@ Trestle.resource(:accounts) do
   table do
     column :name
     column :number
-    column :description
     column :category
-    column :subcategory
     column :initial_balance
     column :created_at, align: :center
     actions
@@ -27,12 +25,14 @@ Trestle.resource(:accounts) do
     text_field :normal_side
 
     select :category, [
+      ["", "blank"],
       ["Asset", "asset"],
       ["Liability", "liability"],
       ["Equity", "equity"],
     ]
 
     select :subcategory, [
+      ["", "blank"],
       ["Asset", "asset"],
       ["Liability", "liability"],
       ["Equity", "equity"],
@@ -51,6 +51,7 @@ Trestle.resource(:accounts) do
     number_field :order
 
     select :statement, [
+      ["", "blank"],
       ["Income Statement", "is"],
       ["Balance Sheet", "bs"],
       ["Retained Earnings Statement", "re"],
