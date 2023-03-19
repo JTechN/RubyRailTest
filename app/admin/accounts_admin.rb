@@ -11,7 +11,7 @@ Trestle.resource(:accounts) do
     column :name
     column :number
     column :category
-    column :initial_balance
+    column :balance
     column :created_at, align: :center
     actions
   end
