@@ -16,6 +16,8 @@ Trestle.resource(:accounts) do
     actions
   end
 
+
+
   # Customize the form fields shown on the new/edit views.
   #
   form do |account|
@@ -38,10 +40,12 @@ Trestle.resource(:accounts) do
       ["Equity", "equity"],
     ]
 
-    number_field :initial_balance
-    number_field :debit
-    number_field :credit
-    number_field :balance
+    # Able to show decimal but not 2 deciimal spaces
+    # Needs to be fixed
+    number_field :initial_balance, step: :any
+    number_field :debit, step: :any
+    number_field :credit, step: :any
+    number_field :balance, step: :any
 
     row do
       col { datetime_field :created_at }
@@ -59,6 +63,8 @@ Trestle.resource(:accounts) do
 
     text_field :comment
   end
+
+
 
   # By default, all parameters passed to the update and create actions will be
   # permitted. If you do not have full trust in your users, you should explicitly
