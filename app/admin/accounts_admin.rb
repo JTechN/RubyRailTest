@@ -14,18 +14,36 @@ Trestle.resource(:accounts) do
     column :balance
     column :created_at, align: :center
 
-    column :active do |accounts|
-      if accounts.deactivated
-        actions do
-          # Create a "Deactivate" button that sends a PUT request to the deactivate action
-          link_to "Deactivate", admin_path(:accounts, account, :deactivate), method: :put
-        end
+    # column :active do |accounts|
+    #   if accounts.deactivated
+    #     actions do
+    #       # Create a "Deactivate" button that sends a PUT request to the deactivate action
+    #       link_to "Deactivate", accounts_admin_path(:accounts, account, :deactivate), method: :put
+    #     end
+    #     status_tag "Active", :success
+    #   else
+    #     status_tag "Inactive", :danger
+    #   end
+    # end
+
+    column :active do |account|
+      if account.deactivated?
         status_tag "Active", :success
+      else
+        link_to "Activate", accounts_admin_path(account), method: :put
+      end
+    end
+
+
+    column :status do |account|
+      if account.deactivated?
+        link_to "Deactivate", accounts_admin_path(account), method: :put
       else
         status_tag "Inactive", :danger
       end
     end
-    actions
+
+     actions
   end
 
 
