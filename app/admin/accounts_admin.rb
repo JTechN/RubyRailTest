@@ -13,6 +13,7 @@ Trestle.resource(:accounts) do
     column :category
     column :balance
     column :created_at, align: :center
+
     actions
   end
 
@@ -22,6 +23,8 @@ Trestle.resource(:accounts) do
   #
   form do |account|
     text_field :name
+
+    #
     number_field :number
     text_field :description
     text_field :normal_side
