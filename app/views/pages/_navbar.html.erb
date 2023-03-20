@@ -3,7 +3,7 @@
     <a class="flex itemsfa-pull-left">
       <!--<img src="logo_flat.png" class="h-6 mr-3 sm:h-9" alt="Finalysis Logo" /> -->
       <%= image_tag("logo_flat.png", alt: 'Finalysis', class: 'w-100', style:'max-width: 14rem')%>
-       <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Finalysis</span>
+       <!--<span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Finalysis</span>-->
 
     </a>
     <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
@@ -15,23 +15,25 @@
 
         <li>
           <%# <a href="#" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a> %>
-          <%= link_to "Home", root_path %>
+          <div class="font-thin">
+            <%= link_to "Home", root_path %>
+          </div>
         </li>
 
         <% if user_signed_in?  %>
 
         <li>
           <%# <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Profile</a> %>
-          <%= link_to('Profile', edit_user_registration_path) %>
+          <div class="font-thin">
+            <%= link_to('Profile', edit_user_registration_path) %>
+          </div>
         </li>
 
         <li>
-          <%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete %>
+          <div class="font-thin">
+            <%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete %>
+          </div>
         </li>
-
-        <p>
-          Hello, <%= current_user.name %>
-        </p>
 
         <% else %>
 
@@ -46,12 +48,20 @@
 
         <% end %>
 
-
+        <% if user_signed_in?  %>
         <% if current_user.role == "Admin" %>
           <li>
             <!-- <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Signup</a> -->
+            <div class="font-thin">
             <%= link_to "Admin", trestle_path%>
+            </div>
           </li>
+        <% end %>
+        <p>
+          <div class="font-black">
+          Hello, <%= current_user.name %>
+          </div>
+        </p>
         <% end %>
 
 
