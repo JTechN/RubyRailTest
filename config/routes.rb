@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   #account registration for accounts
+  get '/event_logs', to: 'event_log#eventlog'
+
+
 
   devise_for :accounts
 
