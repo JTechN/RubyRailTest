@@ -13,6 +13,7 @@ Trestle.resource(:accounts) do
     column :category
     column :balance
     column :created_at, align: :center
+    column :deactivated
 
     # column :active do |accounts|
     #   if accounts.deactivated
