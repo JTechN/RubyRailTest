@@ -1,0 +1,14 @@
+<% @event_logs.each do |event_log| %>
+  <div>
+    <strong>Action:</strong> <%= event_log.action %><br>
+    <strong>Model Name:</strong> <%= event_log.model_name %><br>
+    <strong>Model ID:</strong> <%= event_log.model_id %><br>
+    <% if event_log.before_image %>
+      <strong>Before Image:</strong> <%= event_log.before_image %><br>
+    <% end %>
+    <% if event_log.after_image %>
+      <strong>After Image:</strong> <%= event_log.after_image %><br>
+    <% end %>
+    <strong>Timestamp:</strong> <%= event_log.created_at %><br>
+  </div>
+<% end %>

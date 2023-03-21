@@ -62,6 +62,7 @@ Trestle.configure do |config|
   #
   config.menu do
     group "Custom Group" do
+      item "Event Log", "/event_logs"
       item "Go to App", "/", icon: "fa fa-arrow-left", priority: :first, priority: :first
     end
   end
