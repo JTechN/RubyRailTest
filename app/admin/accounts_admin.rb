@@ -13,8 +13,38 @@ Trestle.resource(:accounts) do
     column :category
     column :balance
     column :created_at, align: :center
+    column :deactivated
 
-    actions
+    # column :active do |accounts|
+    #   if accounts.deactivated
+    #     actions do
+    #       # Create a "Deactivate" button that sends a PUT request to the deactivate action
+    #       link_to "Deactivate", accounts_admin_path(:accounts, account, :deactivate), method: :put
+    #     end
+    #     status_tag "Active", :success
+    #   else
+    #     status_tag "Inactive", :danger
+    #   end
+    # end
+
+    column :active do |account|
+      if account.deactivated?
+        status_tag "Active", :success
+      else
+        link_to "Activate", accounts_admin_path(account), method: :put
+      end
+    end
+
+
+    column :status do |account|
+      if account.deactivated?
+        link_to "Deactivate", accounts_admin_path(account), method: :put
+      else
+        status_tag "Inactive", :danger
+      end
+    end
+
+     actions
   end
 
 
@@ -22,9 +52,9 @@ Trestle.resource(:accounts) do
   # Customize the form fields shown on the new/edit views.
   #
   form do |account|
-    text_field :name
 
-    #
+    tab :account do
+    text_field :name
     number_field :number
     text_field :description
     text_field :normal_side
@@ -43,6 +73,13 @@ Trestle.resource(:accounts) do
       ["Equity", "equity"],
     ]
 
+     row do
+      col { datetime_field :created_at }
+    end
+
+    end
+
+    tab :statement do
     # Able to show decimal but not 2 deciimal spaces
     # Needs to be fixed
     number_field :initial_balance, step: :any
@@ -50,9 +87,6 @@ Trestle.resource(:accounts) do
     number_field :credit, step: :any
     number_field :balance, step: :any
 
-    row do
-      col { datetime_field :created_at }
-    end
 
     number_field :id
     number_field :order
@@ -65,6 +99,7 @@ Trestle.resource(:accounts) do
     ]
 
     text_field :comment
+    end
   end
 
 

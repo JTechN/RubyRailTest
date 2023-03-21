@@ -10,4 +10,16 @@ Rails.application.routes.draw do
   #account registration for accounts
 
   devise_for :accounts
+
+
+  namespace :admin do
+    resources :accounts do
+      member do
+        put :activate
+        put :deactivate # Add this line for the deactivate action
+      end
+    end
+  end
+
+
 end
