@@ -1,12 +1,32 @@
 <h1>Homepage</h1>
 <br>
 <% if current_user %>
+  <div class="content-start px-8 bg-red">
   <p>Hello <%= current_user.email %></p>
   <br>
-  <p>You are a [<%= current_user.role %>]</p>
+  <p>You are signed in as a [<%= current_user.role %>]</p>
   <br>
-  
-  
+  <table class="table-auto border-separate border-spacing-x-11 bg-green-100 border-zinc-700">
+    <thead class="font-semibold">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Account.all.each do |acct| %>
+      <tr>
+        <td><%= acct.id %></td>
+        <td><%= acct.name %></td>
+        <td><%= acct.category %></td>
+        <td><%= acct.description %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
 
 <% else %>
 
