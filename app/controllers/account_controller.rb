@@ -2,16 +2,16 @@ class AccountController < ApplicationController
   Trestle.resource(:accounts) do
     action :activate, method: :put do
       account = Account.find(params[:id])
-      account.update_attribute(:deactivated, false)
+      account.update_attribute(:deactivated, true)
       flash[:success] = "User account activated."
-      redirect_to accounts_path
+      redirect_to activate_admin_account_path
     end
 
     action :deactivate, method: :put do
       account = Account.find(params[:id])
-      account.update_attribute(:deactivated, true)
+      account.update_attribute(:deactivated, false)
       flash[:success] = "User account deactivated."
-      redirect_to accounts_path
+      redirect_to deactivate_admin_account_path
     end
   end
 
